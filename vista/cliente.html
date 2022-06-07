@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clientes</title>
+	<link rel="stylesheet" type="text/css" href="../recursos/style/estiloso.css">
+	<link rel="stylesheet" type="text/css" href="estiloso.css">
+	<script src="../modelo/datos.js"></script>
+</head>
+<body>
+
+	<div id="cabeza" align="center">
+		<img src="../recursos/img/jasbro_logo.png" alt="Jasbro logo" height="130px">
+		<div id="nav">
+			<ul>
+				<li><a href="../index.html">Home</a></li>
+				<li><a href="producto.html">Productos</a>
+				</li>
+				<li><a href="categoria.html">Categorías</a></li>
+				<li><a href="cliente.html">Clientes</a></li>
+				<li><a href="venta.html">Ventas</a></li>
+			</ul>
+		</div>			
+	</div>
+
+	<div id="cuerpo">
+		<h3>Clientes: </h3><br>
+		<table id="cuerpo-tabla">
+
+		</table>
+
+		<script> 
+			//si no es primera vez q visualizamos los productos
+			if(datos.contador_inicializaciones > 0){
+				let clientes = datos.getClientes();
+				var texto = `<thead><th>ID Cliente</th><th>Nombre</th><th>Apellido</th><th>Rut</th><th>Direccion</th><th>Teléfono</th></thead>`;
+				for (var i = 0; i < clientes.length; i++) {
+					texto += `<tr>
+					<td>${clientes[i].id_cliente}</td>
+					<td>${clientes[i].nombre}</td>
+					<td>${clientes[i].apellido}</td>
+					<td>${clientes[i].rut}</td>
+					<td>${clientes[i].direccion}</td>
+					<td>${clientes[i].telefono}</td>
+					</tr>`;
+				}
+				document.getElementById("cuerpo-tabla").innerHTML = texto;
+			}		
+		</script>
+	</div>
+
+	<div id="pie">
+		<p>Jasbro 2017</p>
+	</div>
+
+
+
+</body>
+</html>

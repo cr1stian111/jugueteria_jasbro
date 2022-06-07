@@ -1,0 +1,61 @@
+<!-- Jasbro-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ventas</title>
+	<link rel="stylesheet" type="text/css" href="../recursos/style/estiloso.css">
+	<link rel="stylesheet" type="text/css" href="estiloso.css">
+	<script src="../modelo/datos.js"></script>
+</head>
+<body>
+
+	<div id="cabeza" align="center">
+		<img src="../recursos/img/jasbro_logo.png" alt="Jasbro logo" height="130px">
+		<div id="nav">
+			<ul>
+				<li><a href="../index.html">Home</a></li>
+				<li><a href="producto.html">Productos</a>
+				</li>
+				<li><a href="categoria.html">Categorías</a></li>
+				<li><a href="cliente.html">Clientes</a></li>
+				<li><a href="venta.html">Ventas</a></li>
+			</ul>
+		</div>			
+	</div>
+
+	<div id="cuerpo">
+		<h3>Ventas:</h3>
+		<table id="cuerpo-tabla">
+
+		</table>
+
+		<script> 
+			//si no es primera vez q visualizamos los productos
+			if(datos.contador_inicializaciones > 0){
+				let ventas = datos.getVentas();
+				var texto = `<thead><th>ID venta</th><th>ID cliente</th><th>ID producto</th><th>Cantidad</th><th>Fecha</th><th>Total</th></thead>`;
+				for (var i = 0; i < ventas.length; i++) {
+					texto += `<tr>
+					<td>${ventas[i].id_venta}</td>
+					<td>${ventas[i].id_cliente}</td>
+					<td>${ventas[i].id_producto}</td>
+					<td>${ventas[i].cantidad}</td>
+					<td>${ventas[i].fecha}</td>
+					<td>${ventas[i].total}</td>
+					</tr>`;
+				}
+				document.getElementById("cuerpo-tabla").innerHTML = texto;
+			}		
+		</script>
+	
+	</div>
+
+	<div id="pie">
+		<p>Jasbro 2017</p>
+	</div>
+
+
+
+</body>
+</html>
